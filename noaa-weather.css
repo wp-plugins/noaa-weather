@@ -1,0 +1,27 @@
+/*
+	 Author: Tim Berneman
+	Website: http://www.extremewebdesign.biz
+	   Date: November 2010
+		 Desc: This css file is used in conjunction with noaa-weather.php which is part of
+	         a WordPress widget to provide NOAA weather in the sidebar.
+*/
+
+#noaa-weather {}
+#noaa-weather p {margin: 0; padding: 0;}
+#noaa-weather p.noaa_loc {font-weight: bold; text-align: center;}
+#noaa-weather p.noaa_update {font-size: .9em; text-align: center;}
+#noaa-weather p.noaa_link {text-align: center;}
+#noaa-weather p.noaa_current {font-size: 1.1em; font-weight: bold; margin: 8px 0; text-align: center;}
+#noaa-weather p.noaa_icon {float: left; margin-right: 8px;}
+#noaa-weather p.noaa_icon img{border: 1px solid #666; margin-left: 10px; padding: 2px;}
+#noaa-weather p.noaa_temp {line-height: 1.3em;}
+#noaa-weather p.noaa_temp span {font-weight: bold;}
+#noaa-weather p.noaa_wind {line-height: 1.3em;}
+#noaa-weather p.noaa_wind span {font-weight: bold;}
+#noaa-weather p.noaa_humidity {line-height: 1.3em;}
+#noaa-weather p.noaa_humidity span {font-weight: bold;}
+#noaa-weather p.noaa_windchill {line-height: 1.3em;}
+#noaa-weather p.noaa_windchill span {font-weight: bold;}
+#noaa-weather p.noaa_forecast {margin: 16px 20px 1px 20px; text-align: center;}
+#noaa-weather p.noaa_forecast a {text-decoration: none;}
+#noaa-weather p.noaa_forecast a:hover {text-decoration: underline;}
