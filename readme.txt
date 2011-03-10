@@ -1,7 +1,7 @@
 === NOAA Weather ===
 Contributors: Tim Berneman
 Donate link: http://www.berneman.com/noaa-weather
-Tags: NOAA,weather,wordpress,plugin,widget
+Tags: NOAA,weather,forecast,wordpress,plugin,widget,US,United States,local
 Requires at least: 3.0.0
 Tested up to: 3.1
 Stable tag: trunk
@@ -10,7 +10,7 @@ Get NOAA weather information in the sidebar for your locale. Note that NOAA repo
 
 == Description ==
 
-The NOAA Weather widget will show the current weather and weather icons for any locale in the United States (including Commonwealths & Territories) that NOAA reports on.  It will automatically add the necessary information into the WordPress cron to update every 30 minutes.
+The NOAA Weather widget will show the current weather and weather icons for any locale in the United States (including the commonwealths & territories) that NOAA reports on.  It will automatically add the necessary information into the WordPress cron to update every 30 minutes.
 
 To find your code go to this link http://www.weather.gov/xml/current_obs/ and find your state or location in the dropdown list and click the "Find" button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after the location name.
 
