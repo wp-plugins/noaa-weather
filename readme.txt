@@ -14,8 +14,11 @@ The NOAA Weather widget will show the current weather and weather icons for any 
 
 To find your code go to this link http://www.weather.gov/xml/current_obs/ and find your state or location in the dropdown list and click the "Find" button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after the location name.
 
-NOTE: It may take up to 30 minutes before you see the weather in your widget.  The reason this may occur is when you activate the widget it creates a cron event to download the XML file from NOAA every half hour.  The first time it runs you most likely will not have added the widget to the sidebar and thus there is no code for the location to get the correct XML file.  You can "cheat" this by adding the widget with the correct code, deactivate the plugin and then reactivate it again.  It should update within a minute or two.
+NOTES: It may take up to 30 minutes before you see the weather in your widget.  The reason this may occur is when you activate the widget it creates a cron event to download the XML file from NOAA every half hour.  The first time it runs you most likely will not have added the widget to the sidebar and thus there is no code for the location to get the correct XML file.  You can "cheat" this by adding the widget with the correct code, deactivate the plugin and then reactivate it again.  It should update within a minute or two.
 
+Depending on your theme you may need to tweak the CSS file.
+
+This widget periodically downloads an XML file from NOAA into the widget folder so it will need the appropriate permissions.
 
 == Pro Version ==
 
