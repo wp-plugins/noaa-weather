@@ -12,14 +12,14 @@ Get NOAA weather information in the sidebar for your locale. Note that NOAA repo
 
 The NOAA Weather widget will show the current weather and weather icons for any locale in the United States (including Commonwealths & Territories) that NOAA reports on.  It will automatically add the necessary information into the WordPress cron to update every 30 minutes.
 
-Go to this link http://www.weather.gov/alerts-beta/ and search for your state and city's "NOAA code".
+To find your code go to this link http://www.weather.gov/xml/current_obs/ and find your state or location in the dropdown list and click the "Find" button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after the location name.
 
 NOTE: It may take up to 30 minutes before you see the weather in your widget.  The reason this may occur is when you activate the widget it creates a cron event to download the XML file from NOAA every half hour.  The first time it runs you most likely will not have added the widget to the sidebar and thus there is no code for the location to get the correct XML file.  You can "cheat" this by adding the widget with the correct code, deactivate the plugin and then reactivate it again.  It should update within a minute or two.
 
 
 == Pro Version ==
 
-Depending on how well received this widget is and requests for enhancements, I may make a paid for "Pro" version.  I would probably ask for a nominal fee (around $10-$20 USD) for this enhanced version.  The "Pro" version most likely would include the forecast and alerts in addition to the current weather conditions.  Depending on the usefulness, I may make shortcodes to include the weather in posts or other places.  Go to the website and send me an email if you would be interested in a pro version. Your suggestions would also be most welcome!
+Depending on how well received this widget is and requests for enhancements, I may make a paid for "Pro" version.  I would probably ask for a nominal fee (around $10-$20 USD) for this enhanced version.  The "Pro" version most likely would include the current conditions as well as a 3 or 5 day forecast and weather alerts.  Depending on the usefulness, I may make shortcodes to include the weather in posts or other places.  Go to the website and send me an email if you would be interested in a pro version. Your suggestions would also be most welcome!
 
 
 == Installation ==
@@ -50,7 +50,7 @@ There are no upgrades so far.
 == Frequently Asked Questions ==
 
 = Why am I getting "Weather Unavailable or invalid NOAA code." in my widget? =
-Most likely you've entered and invalid code, or you have just installed the widget.  Wait 30 minutes and refresh the page or look at the NOTE in the Description above.
+Most likely you've entered an invalid code, or you have just installed the widget.  Wait 30 minutes and refresh the page or look at the NOTE in the Description to see how to "cheat" it to refresh.
 
 
 == Screenshots ==
@@ -64,6 +64,9 @@ Most likely you've entered and invalid code, or you have just installed the widg
 
 = 1.0.0 =
 This is the first version released to the public.
+
+= 0.9.1 =
+Some minor tweaks to the css file.
 
 = 0.9.0 =
 First beta release to select test group.
