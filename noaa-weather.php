@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://www.berneman.com/noaa-weather
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.0.0
+	Version: 1.0.1
 	Author: Tim Berneman
 	Author URI: http://www.berneman.com
 	License: GPL2
@@ -74,6 +74,16 @@ function Get_NOAA_Weather_File() {
 		}
 	}
 }
+
+function define_cron_schedule( $schedules ) {
+	// add a 'twicehourly' schedule to the existing set
+	$schedules['twicehourly'] = array(
+		'interval' => 1800,
+		'display' => __('Twice Hourly')
+	);
+	return $schedules;
+}
+add_filter( 'cron_schedules', 'define_cron_schedule' ); 
 
 /**
  * Use curl to get weather file according to the code
@@ -181,6 +191,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 		
 	<?php
 	}
+	
 }
 
 ?>

@@ -65,6 +65,9 @@ Most likely you've entered an invalid code, or you have just installed the widge
 
 == ChangeLog ==
 
+= 1.0.1 =
+Added code to create "twicehourly" cron schedule.
+
 = 1.0.0 =
 This is the first version released to the public.
 
