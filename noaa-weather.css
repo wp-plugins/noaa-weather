@@ -1,8 +1,24 @@
 /*
-	 Author: Tim Berneman
-	Website: http://www.berneman.com/noaa-weather
-		 Desc: This css file is used in conjunction with noaa-weather.php which is part of
-	         a WordPress widget to provide NOAA weather in the sidebar.
+  Author: Tim Berneman
+ Website: http://www.berneman.com/noaa-weather
+    Desc: This css file is used in conjunction with noaa-weather.php which is part of
+          a WordPress widget to provide NOAA weather in the sidebar.
+
+  Styles: Here is a list of the styles and what they affect
+	
+					STYLE NAME      Example of text
+          =============== ===========================================================
+          noaa_loc:       Mason City Municipal Airport, IA
+          noaa_update:    Last Updated on Mar 11 2011, 8:53 am CST
+          noaa_link:      Weather by NOAA
+          noaa_current:   Current Conditions: Fog/Mist
+          noaa_icon:      (the icon)
+          noaa_temp:      Temp: 25°F (span is for the word "Temp:")
+          noaa_wind:      Wind: SE at 12mph (span is for the word "Wind:")
+          noaa_humidity:  Humidity: 96% (span is for the word "Humidity:")
+          noaa_windchill: Windchill: 14°F (span is for the word "Windchill:")
+          noaa_forecast:  Your 5-Day Forecast at a Glance (link)
+          =============== ===========================================================
 */
 
 #noaa-weather {}
