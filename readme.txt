@@ -53,7 +53,7 @@ There are no upgrades so far.
 == Frequently Asked Questions ==
 
 = Why am I getting "Weather Unavailable or invalid NOAA code." in my widget? =
-Most likely you've entered an invalid code, or you have just installed the widget.  Wait 30 minutes and refresh the page or look at the NOTE in the Description to see how to "cheat" it to refresh.
+First, make sure you are using the latest version of the widget. If you are still getting this message, most likely you've entered an invalid code or you have just installed the widget. If you've just installed the widget, wait 30 minutes and refresh the page or look at the NOTES in the Description to see why this may happen and how to "cheat" it to refresh sooner.
 
 
 == Screenshots ==
