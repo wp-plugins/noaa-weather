@@ -12,6 +12,8 @@ Get NOAA weather information in the sidebar for your locale. Note that NOAA repo
 
 The NOAA Weather widget will show the current weather and weather icons for any locale in the United States (including the commonwealths & territories) that NOAA reports on.  It will automatically add the necessary information into the WordPress cron to update every 30 minutes.
 
+Please remember to come back and Rate this plugin as well as report the Compatability of this plugin.  If you have any problems or suggestions please email me at tim@berneman.com and I will respond quickly.
+
 To find your code go to this link http://www.weather.gov/xml/current_obs/ and find your state or location in the dropdown list and click the "Find" button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after the location name.
 
 NOTES: It may take up to 30 minutes before you see the weather in your widget.  The reason this may occur is when you activate the widget it creates a cron event to download the XML file from NOAA every half hour.  The first time it runs you most likely will not have added the widget to the sidebar and thus there is no code for the location to get the correct XML file.  You can "cheat" this by adding the widget with the correct code, deactivate the plugin and then reactivate it again.  It should update within a minute or two.
