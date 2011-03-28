@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://www.berneman.com/noaa-weather
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.0.2
+	Version: 1.0.3
 	Author: Tim Berneman
 	Author URI: http://www.berneman.com
 	License: GPL2
@@ -142,9 +142,9 @@ class NOAA_Weather_Widget extends WP_Widget {
 				echo("<div id='noaa-weather'>");
 				echo("<p class='noaa_loc'>".$xml->location."</p>");
 				echo("<p class='noaa_update'>".$xml->observation_time."</p>");
-				echo("<p class='noaa_link'>Weather by <a href='".urlencode($xml->credit_URL)."' title='".htmlentities($xml->credit,ENT_QUOTES)."' target='_blank'>NOAA</a>"."</p>");
+				echo("<p class='noaa_link'>Weather by <a href='".$xml->credit_URL."' title='".htmlentities($xml->credit,ENT_QUOTES)."' target='_blank'>NOAA</a>"."</p>");
 				echo("<p class='noaa_current'>Current Conditions: ".$xml->weather."</p>");
-				echo("<p class='noaa_icon'><a href='".urlencode("http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&lon=".$xml->longitude)."' title='Click for your 5-day forecast.' target='_blank'><img src='".$xml->icon_url_base.$xml->icon_url_name."' alt='NOAA Icon'/></a>"."</p>");
+				echo("<p class='noaa_icon'><a href='http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&amp;lon=".$xml->longitude."' title='Click for your 5-day forecast.' target='_blank'><img src='".$xml->icon_url_base.$xml->icon_url_name."' alt='NOAA Icon'/></a>"."</p>");
 				echo("<p class='noaa_temp'><span>Temp: </span>".round($xml->temp_f)."&deg;F</p>");
 				echo("<p class='noaa_wind'><span>Wind: </span>".str_ireplace($wind_full,$wind_abbr,$xml->wind_dir)." at ".round($xml->wind_mph)."mph</p>");
 				echo("<p class='noaa_humidity'><span>Humidity: </span>".$xml->relative_humidity."%</p>");
@@ -153,7 +153,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 				}else{
 					echo("<p class='noaa_dewpoint'><span>Dewpoint: </span>".$xml->dewpoint_f."&deg;F</p>");
 				}
-				echo("<p class='noaa_forecast'><a href='".urlencode("http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&lon=".$xml->longitude)."' title='Click for your 5-day forecast.' target='_blank'>Your 5-Day Forecast at a Glance</a></p>");
+				echo("<p class='noaa_forecast'><a href='http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&amp;lon=".$xml->longitude."' title='Click for your 5-day forecast.' target='_blank'>Your 5-Day Forecast at a Glance</a></p>");
 				echo("</div>");
 			}
 		}else{

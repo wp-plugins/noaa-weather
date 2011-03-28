@@ -67,6 +67,9 @@ First, make sure you are using the latest version of the widget. If you are stil
 
 == ChangeLog ==
 
+= 1.0.3 =
+Fixed the links that broke when making them pass validation.
+
 = 1.0.2 =
 The widget should pass markup validation now.
 The NOAA code is trimmed of any extraneous spaces and is uppercased.
