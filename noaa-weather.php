@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://www.berneman.com/noaa-weather
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.0.1
+	Version: 1.0.2
 	Author: Tim Berneman
 	Author URI: http://www.berneman.com
 	License: GPL2
@@ -12,7 +12,7 @@
 		Copyright 2010-2011  Tim Berneman  (email : tim at berneman dot com)
 
 		This program is free software; you can redistribute it and/or modify
-		it under the terms of the GNU General Public License, version 2, as 
+		it under the terms of the GNU General Public License, version 2, as
 		published by the Free Software Foundation.
 
 		This program is distributed in the hope that it will be useful,
@@ -75,16 +75,6 @@ function Get_NOAA_Weather_File() {
 	}
 }
 
-function define_cron_schedule( $schedules ) {
-	// add a 'twicehourly' schedule to the existing set
-	$schedules['twicehourly'] = array(
-		'interval' => 1800,
-		'display' => __('Twice Hourly')
-	);
-	return $schedules;
-}
-add_filter( 'cron_schedules', 'define_cron_schedule' ); 
-
 /**
  * Use curl to get weather file according to the code
  */
@@ -97,6 +87,16 @@ function Get_NOAA_Weather_File_With_Curl($code) {
 	curl_close($ch);
 	fclose($fp);
 }
+
+function define_cron_schedule( $schedules ) {
+	// add a 'twicehourly' schedule to the existing set
+	$schedules['twicehourly'] = array(
+		'interval' => 1800,
+		'display' => __('Twice Hourly')
+	);
+	return $schedules;
+}
+add_filter( 'cron_schedules', 'define_cron_schedule' );
 
 /**
  * Create our widget.
@@ -111,13 +111,13 @@ class NOAA_Weather_Widget extends WP_Widget {
 		$control_ops = array('width' => 400, 'height' => 350, 'id_base' => 'noaa_weather');
 		$this->WP_Widget('noaa_weather', __('NOAA Weather'), $widget_ops, $control_ops);
 	}
-	
+
 	/**
 	 * How to display the widget on the screen.
 	 */
-	function widget( $args, $instance ) {	
+	function widget( $args, $instance ) {
 		extract( $args );
-		
+
 		/* User-selected settings. */
 		$noaa_title = apply_filters('widget_title', $instance['noaa_title'] );
 		$noaa_code = $instance['noaa_code'];
@@ -142,34 +142,47 @@ class NOAA_Weather_Widget extends WP_Widget {
 				echo("<div id='noaa-weather'>");
 				echo("<p class='noaa_loc'>".$xml->location."</p>");
 				echo("<p class='noaa_update'>".$xml->observation_time."</p>");
-				echo("<p class='noaa_link'>Weather by <a href='".$xml->credit_URL."' title='".$xml->credit."' target='_blank'>NOAA</a>"."</p>");
+				echo("<p class='noaa_link'>Weather by <a href='".urlencode($xml->credit_URL)."' title='".htmlentities($xml->credit,ENT_QUOTES)."' target='_blank'>NOAA</a>"."</p>");
 				echo("<p class='noaa_current'>Current Conditions: ".$xml->weather."</p>");
-				echo("<p class='noaa_icon'><a href='http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&lon=".$xml->longitude."' title='Click for your 5-day forecast.' target='_blank'><img src='".$xml->icon_url_base.$xml->icon_url_name."'></a>"."</p>");
+				echo("<p class='noaa_icon'><a href='".urlencode("http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&lon=".$xml->longitude)."' title='Click for your 5-day forecast.' target='_blank'><img src='".$xml->icon_url_base.$xml->icon_url_name."' alt='NOAA Icon'/></a>"."</p>");
 				echo("<p class='noaa_temp'><span>Temp: </span>".round($xml->temp_f)."&deg;F</p>");
 				echo("<p class='noaa_wind'><span>Wind: </span>".str_ireplace($wind_full,$wind_abbr,$xml->wind_dir)." at ".round($xml->wind_mph)."mph</p>");
 				echo("<p class='noaa_humidity'><span>Humidity: </span>".$xml->relative_humidity."%</p>");
-				echo("<p class='noaa_windchill'><span>Windchill: </span>".$xml->windchill_f."&deg;F</p>");
-				echo("<p class='noaa_forecast'><a href='http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&lon=".$xml->longitude."' title='Click for your 5-day forecast.' target='_blank'>Your 5-Day Forecast at a Glance</a></p>");
+				if(isset($xml->windchill_f)) {
+					echo("<p class='noaa_windchill'><span>Windchill: </span>".$xml->windchill_f."&deg;F</p>");
+				}else{
+					echo("<p class='noaa_dewpoint'><span>Dewpoint: </span>".$xml->dewpoint_f."&deg;F</p>");
+				}
+				echo("<p class='noaa_forecast'><a href='".urlencode("http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&lon=".$xml->longitude)."' title='Click for your 5-day forecast.' target='_blank'>Your 5-Day Forecast at a Glance</a></p>");
 				echo("</div>");
 			}
 		}else{
 			echo '<p>No NOAA Code Found.</p>';
 		}
-		
+
 		/* After widget (defined by themes). */
 		echo $after_widget;
 	}
-	
+
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 
-		/* Strip tags (if needed) and update the widget settings. */
-		$instance['noaa_title'] = strip_tags( $new_instance['noaa_title'] );
-		$instance['noaa_code'] = strip_tags( $new_instance['noaa_code'] );
+		/* Trim and strip tags for user provided data */
+		$newtitle = trim(strip_tags( $new_instance['noaa_title'] ));
+		$newcode = strtoupper(trim(strip_tags( $new_instance['noaa_code'] )));
 
+		/* Update the widget settings. */
+		$instance['noaa_title'] = $newtitle;
+		$instance['noaa_code'] = $newcode;
+
+		/* Call the function to get the weather file immediately for this code if not blank*/
+		if(strlen($newcode) > 0) {
+			Get_NOAA_Weather_File_With_Curl($newcode);
+		}
+		
 		return $instance;
 	}
-	
+
 	function form( $instance ) {
 
 		/* Set up some default widget settings. */
@@ -188,10 +201,10 @@ class NOAA_Weather_Widget extends WP_Widget {
 		<p class='description'>
 			Find your code <a href="http://www.weather.gov/xml/current_obs/" target="_blank">here</a> by selecting your state from the dropdown list and then click the 'Find' button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after your location name.
 		</p>
-		
+
 	<?php
 	}
-	
+
 }
 
 ?>

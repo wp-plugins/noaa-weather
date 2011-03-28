@@ -17,6 +17,8 @@
           noaa_wind:      Wind: SE at 12mph (span is for the word "Wind:")
           noaa_humidity:  Humidity: 96% (span is for the word "Humidity:")
           noaa_windchill: Windchill: 14°F (span is for the word "Windchill:")
+          noaa_dewpoint:  Dewpoint: 22°F (span is for the word "Dewpoint:")
+					                NOTE: Dewpoint is shown if there is no value for windchill
           noaa_forecast:  Your 5-Day Forecast at a Glance (link)
           =============== ===========================================================
 */
@@ -37,6 +39,8 @@
 #noaa-weather p.noaa_humidity span {font-weight: bold;}
 #noaa-weather p.noaa_windchill {line-height: 1.3em;}
 #noaa-weather p.noaa_windchill span {font-weight: bold;}
+#noaa-weather p.noaa_dewpoint {line-height: 1.3em;}
+#noaa-weather p.noaa_dewpoint span {font-weight: bold;}
 #noaa-weather p.noaa_forecast {margin: 16px 20px 1px 20px; text-align: center;}
 #noaa-weather p.noaa_forecast a {text-decoration: none;}
 #noaa-weather p.noaa_forecast a:hover {text-decoration: underline;}
