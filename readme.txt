@@ -10,9 +10,9 @@ Get NOAA weather information in the sidebar for your locale. Note that NOAA repo
 
 == Description ==
 
-The NOAA Weather widget will show the current weather and weather icons for any locale in the United States (including the commonwealths & territories) that NOAA reports on.  It will automatically add the necessary information into the WordPress cron to update every 30 minutes.
+The NOAA Weather widget will show the current weather and weather icons for any locale in the United States (including the commonwealths & territories) that NOAA reports on. It will automatically add the necessary information into the WordPress cron to update every 30 minutes.
 
-Please remember to come back and Rate this plugin as well as report the Compatability of this plugin.  If you have any questions, problems or suggestions please don't hesitate to email me at tim@berneman.com and I will respond quickly.
+Please remember to come back and Rate this plugin as well as report the Compatability of this plugin. If you have any questions, problems or suggestions please don't hesitate to email me at tim@berneman.com and I will respond quickly.
 
 To find your code go to this link http://www.weather.gov/xml/current_obs/ and find your state or location in the dropdown list and click the "Find" button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after the location name.
 
@@ -24,7 +24,7 @@ This widget periodically downloads an XML file from NOAA into the widget folder 
 
 == Pro Version ==
 
-Depending on how well received this widget is and requests for enhancements, I may make a paid for "Pro" version.  I would probably ask for a nominal fee (around $10-$20 USD) for this enhanced version.  The "Pro" version most likely would include the current conditions as well as a 3 or 5 day forecast and weather alerts.  Depending on the usefulness, I may make shortcodes to include the weather in posts or other places.  Please send me an email at tim@berneman.com if you would be interested in a pro version. Your suggestions would also be most welcome!
+Depending on how well received this widget is and requests for enhancements, I may make a paid for "Pro" version. I would probably ask for a nominal fee (around $10-$20 USD) for this enhanced version. The "Pro" version most likely would include the current conditions as well as a 3 or 5 day forecast and weather alerts. Depending on the usefulness, I may make shortcodes to include the weather in posts or other places. Please send me an email at tim@berneman.com if you would be interested in a pro version. Your suggestions would also be most welcome!
 
 
 == Installation ==
@@ -66,6 +66,9 @@ First, make sure you are using the latest version of the widget. If you are stil
 
 
 == ChangeLog ==
+
+= 1.0.4 =
+Fixed problem when changing themes the weather file wasn't being updated.
 
 = 1.0.3 =
 Fixed the links that broke when making them pass validation.
