@@ -67,6 +67,9 @@ First, make sure you are using the latest version of the widget. If you are stil
 
 == ChangeLog ==
 
+= 1.0.6 =
+Fixed a problem with a slash vs. backslash for Wordpress installs on Linux servers.
+
 = 1.0.5 =
 Get current weather file for any codes "in use" when activating plugin.
 

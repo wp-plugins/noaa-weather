@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://www.berneman.com/noaa-weather
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.0.5
+	Version: 1.0.6
 	Author: Tim Berneman
 	Author URI: http://www.berneman.com
 	License: GPL2
@@ -87,7 +87,7 @@ function Get_NOAA_Weather_File() {
  */
 function Get_NOAA_Weather_File_With_Curl( $code ) {
 	$ch = curl_init( "http://www.weather.gov/xml/current_obs/{$code}.xml" );
-	$fp = fopen(dirname( __FILE__) . "\weather-current-{$code}.xml", "w" );
+	$fp = fopen(dirname( __FILE__) . "/weather-current-{$code}.xml", "w" );
 	curl_setopt( $ch, CURLOPT_FILE, $fp );
 	curl_setopt( $ch, CURLOPT_HEADER, 0 );
 	curl_exec( $ch );
