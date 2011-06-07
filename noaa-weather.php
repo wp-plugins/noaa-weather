@@ -3,8 +3,8 @@
 /**
 	Plugin Name: NOAA Weather
 	Plugin URI: http://www.berneman.com/noaa-weather
-	Description: Display the current NOAA weather in the sidebar. Note that NOAA reports weather for US States, Commonwealths, & Territories only.
-	Version: 1.0.7
+	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
+	Version: 1.0.6
 	Author: Tim Berneman
 	Author URI: http://www.berneman.com
 	License: GPL2
@@ -55,7 +55,7 @@ function deactivate_NOAA_Weather_widget() {
 
 function init_NOAA_Weather_widget() {
 	// Register our stylesheet
-	wp_enqueue_style( 'NOAA_Weather_Widget_Stylesheet' , WP_PLUGIN_URL . DIRECTORY_SEPARATOR . 'noaa-weather' . DIRECTORY_SEPARATOR . 'noaa-weather.css' );
+	wp_enqueue_style( 'NOAA_Weather_Widget_Stylesheet' , WP_PLUGIN_URL . '/noaa-weather/noaa-weather.css' );
 }
 
 function load_NOAA_Weather_widget() {
@@ -87,7 +87,7 @@ function Get_NOAA_Weather_File() {
  */
 function Get_NOAA_Weather_File_With_Curl( $code ) {
 	$ch = curl_init( "http://www.weather.gov/xml/current_obs/{$code}.xml" );
-	$fp = fopen(dirname( __FILE__) . DIRECTORY_SEPARATOR . "weather-current-{$code}.xml", "w" );
+	$fp = fopen(dirname( __FILE__) . "/weather-current-{$code}.xml", "w" );
 	curl_setopt( $ch, CURLOPT_FILE, $fp );
 	curl_setopt( $ch, CURLOPT_HEADER, 0 );
 	curl_exec( $ch );
@@ -140,7 +140,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 
 		/* Display name from widget settings. */
 		if ( $noaa_code ) {
-			$xml = @simplexml_load_file(dirname(__FILE__) . DIRECTORY_SEPARATOR . "weather-current-".$noaa_code.".xml");
+			$xml = @simplexml_load_file(dirname(__FILE__) . "/weather-current-".$noaa_code.".xml");
 			if($xml === false)
 				echo("Weather Unavailable or invalid NOAA code.");
 			else {
@@ -215,7 +215,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 }
 
 function log_noaa( $msg ) {
-	$fh = fopen( dirname(__FILE__) . DIRECTORY_SEPARATOR . "noaa-weather.log", "a" ) or die( "Error opening file." );
+	$fh = fopen( dirname(__FILE__)."/noaa-weather.log", "a" ) or die( "Error opening file." );
 	fwrite( $fh, "[" . date("d/m/Y h:i.sa") . "] " . $msg."\r\n" );
 	fclose( $fh );
 }
