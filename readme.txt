@@ -1,9 +1,9 @@
 === NOAA Weather ===
 Contributors: Tim Berneman
 Donate link: http://www.berneman.com/noaa-weather
-Tags: NOAA,weather,forecast,wordpress,plugin,widget,US,United States,local
+Tags: forecast, local, NOAA, plugin, plug-in, United States, US, Weather, widget, wordpress
 Requires at least: 3.0.0
-Tested up to: 3.1
+Tested up to: 3.1.3
 Stable tag: trunk
 
 Get NOAA weather information in the sidebar for your locale. Note that NOAA reports weather for US States, Commonwealths, & Territories only.
