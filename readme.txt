@@ -67,6 +67,9 @@ First, make sure you are using the latest version of the widget. If you are stil
 
 == ChangeLog ==
 
+= 1.0.7 =
+Removed default title of "NOAA Weather" if the user left it blank in the widget setup for more flexibility with some themes.
+
 = 1.0.6 =
 Fixed a problem with a slash vs. backslash for Wordpress installs on Linux servers.
 

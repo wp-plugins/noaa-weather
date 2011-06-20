@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://www.berneman.com/noaa-weather
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.0.6
+	Version: 1.0.7
 	Author: Tim Berneman
 	Author URI: http://www.berneman.com
 	License: GPL2
@@ -72,8 +72,8 @@ function Get_NOAA_Weather_File() {
 	foreach ( $options as $key => $value ) {
 		if ( is_array($value) ) {
 			$code = $options[$key]["noaa_code"];
-			if( $code <> null ){
-				if( !in_array($code,$codes) ){
+			if ( $code <> null ) {
+				if ( !in_array($code,$codes) ) {
 					$codes[] = $code;
 					Get_NOAA_Weather_File_With_Curl( $code );
 				}
@@ -135,13 +135,11 @@ class NOAA_Weather_Widget extends WP_Widget {
 		/* Title of widget (before and after defined by themes). */
 		if ( $noaa_title )
 			echo $before_title . $noaa_title . $after_title;
-		else
-			echo $before_title . "NOAA Weather" . $after_title;
 
 		/* Display name from widget settings. */
 		if ( $noaa_code ) {
 			$xml = @simplexml_load_file(dirname(__FILE__) . "/weather-current-".$noaa_code.".xml");
-			if($xml === false)
+			if ( $xml === false )
 				echo("Weather Unavailable or invalid NOAA code.");
 			else {
 				$wind_full = array( "Northeast" , "Northwest" , "Southeast" , "Southwest" );
@@ -155,7 +153,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 				echo("<p class='noaa_temp'><span>Temp: </span>".round($xml->temp_f)."&deg;F</p>");
 				echo("<p class='noaa_wind'><span>Wind: </span>".str_ireplace($wind_full,$wind_abbr,$xml->wind_dir)." at ".round($xml->wind_mph)."mph</p>");
 				echo("<p class='noaa_humidity'><span>Humidity: </span>".$xml->relative_humidity."%</p>");
-				if( isset($xml->windchill_f) ) {
+				if ( isset($xml->windchill_f) ) {
 					echo("<p class='noaa_windchill'><span>Windchill: </span>".$xml->windchill_f."&deg;F</p>");
 				}else{
 					echo("<p class='noaa_dewpoint'><span>Dewpoint: </span>".$xml->dewpoint_f."&deg;F</p>");
@@ -183,9 +181,8 @@ class NOAA_Weather_Widget extends WP_Widget {
 		$instance['noaa_code'] = $newcode;
 
 		/* Call the function to get the weather file immediately for this code if not blank*/
-		if(strlen($newcode) > 0) {
+		if ( strlen($newcode) > 0 ) 
 			Get_NOAA_Weather_File_With_Curl( $newcode );
-		}
 		
 		return $instance;
 	}
