@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://www.berneman.com/noaa-weather
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.0.7
+	Version: 1.0.8
 	Author: Tim Berneman
 	Author URI: http://www.berneman.com
 	License: GPL2
@@ -95,7 +95,7 @@ function Get_NOAA_Weather_File_With_Curl( $code ) {
 	fclose( $fp );
 }
 
-function define_cron_schedule( $schedules ) {
+function NOAA_Weather_Define_Cron_Schedule( $schedules ) {
 	// add a 'twicehourly' schedule to the existing set
 	$schedules['twicehourly'] = array(
 		'interval' => 1800,
@@ -103,7 +103,7 @@ function define_cron_schedule( $schedules ) {
 	);
 	return $schedules;
 }
-add_filter( 'cron_schedules', 'define_cron_schedule' );
+add_filter( 'cron_schedules', 'NOAA_Weather_Define_Cron_Schedule' );
 
 /**
  * Create our widget.
@@ -155,7 +155,9 @@ class NOAA_Weather_Widget extends WP_Widget {
 				echo("<p class='noaa_humidity'><span>Humidity: </span>".$xml->relative_humidity."%</p>");
 				if ( isset($xml->windchill_f) ) {
 					echo("<p class='noaa_windchill'><span>Windchill: </span>".$xml->windchill_f."&deg;F</p>");
-				}else{
+				}elseif ( isset($xml->heat_index_f) ) {
+					echo("<p class='noaa_heatindex'><span>Heat Index: </span>".$xml->heat_index_f."&deg;F</p>");
+				}elseif ( isset($xml->dewpoint_f) ) {
 					echo("<p class='noaa_dewpoint'><span>Dewpoint: </span>".$xml->dewpoint_f."&deg;F</p>");
 				}
 				echo("<p class='noaa_forecast'><a href='http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&amp;lon=".$xml->longitude."' title='Click for your 5-day forecast.' target='_blank'>Your 5-Day Forecast at a Glance</a></p>");
@@ -179,6 +181,9 @@ class NOAA_Weather_Widget extends WP_Widget {
 		/* Update the widget settings. */
 		$instance['noaa_title'] = $newtitle;
 		$instance['noaa_code'] = $newcode;
+
+		/* Update the options table */
+		//update_option("widget_noaa_weather", $newvalue);
 
 		/* Call the function to get the weather file immediately for this code if not blank*/
 		if ( strlen($newcode) > 0 ) 
