@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://www.berneman.com/noaa-weather
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.0.8
+	Version: 1.1.0
 	Author: Tim Berneman
 	Author URI: http://www.berneman.com
 	License: GPL2
@@ -63,7 +63,7 @@ function load_NOAA_Weather_widget() {
 }
 
 /**
- * Call curl with each weather code
+ * Get weather file from NOAA for each weather code
  */
 function Get_NOAA_Weather_File() {
 	//Look in options for all codes to retrieve weather for, disregarding duplicates
@@ -75,7 +75,7 @@ function Get_NOAA_Weather_File() {
 			if ( $code <> null ) {
 				if ( !in_array($code,$codes) ) {
 					$codes[] = $code;
-					Get_NOAA_Weather_File_With_Curl( $code );
+					Get_NOAA_Weather_File_With_HTTP( $code );
 				}
 			}
 		}
@@ -83,18 +83,19 @@ function Get_NOAA_Weather_File() {
 }
 
 /**
- * Use curl to get weather file according to the code
+ * Use WP HTTP to get weather file according to the code
  */
-function Get_NOAA_Weather_File_With_Curl( $code ) {
-	$ch = curl_init( "http://www.weather.gov/xml/current_obs/{$code}.xml" );
+function Get_NOAA_Weather_File_With_HTTP( $code ) {
+	// Get current conditions
+	$result = wp_remote_get ( "http://www.weather.gov/xml/current_obs/{$code}.xml" );
 	$fp = fopen(dirname( __FILE__) . "/weather-current-{$code}.xml", "w" );
-	curl_setopt( $ch, CURLOPT_FILE, $fp );
-	curl_setopt( $ch, CURLOPT_HEADER, 0 );
-	curl_exec( $ch );
-	curl_close( $ch );
-	fclose( $fp );
+	fwrite($fp, $result["body"]);
+	fclose($fp);
 }
 
+/**
+ * Set up the cron to get the weather every so often
+ */
 function NOAA_Weather_Define_Cron_Schedule( $schedules ) {
 	// add a 'twicehourly' schedule to the existing set
 	$schedules['twicehourly'] = array(
@@ -187,7 +188,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 
 		/* Call the function to get the weather file immediately for this code if not blank*/
 		if ( strlen($newcode) > 0 ) 
-			Get_NOAA_Weather_File_With_Curl( $newcode );
+			Get_NOAA_Weather_File_With_HTTP( $newcode );
 		
 		return $instance;
 	}
@@ -216,6 +217,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 
 }
 
+/* Use for debugging */
 function log_noaa( $msg ) {
 	$fh = fopen( dirname(__FILE__)."/noaa-weather.log", "a" ) or die( "Error opening file." );
 	fwrite( $fh, "[" . date("d/m/Y h:i.sa") . "] " . $msg."\r\n" );

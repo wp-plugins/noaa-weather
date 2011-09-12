@@ -69,6 +69,9 @@ Try deactivating the widget and reactivating it.
 
 == ChangeLog ==
 
+= 1.1.0 =
+Rewrote widget to use WP_Http functions (wp_remote_get) to retrieve weather file instead of using Curl. This should fix the problem on some servers that didn't have curl activated in PHP and thus the weather file never downloaded.
+
 = 1.0.8 =
 Renamed some internal functions so as not to conflict with other plugins.
 If there is no value for Windchill then Heat Index is displayed, if no Heat Index then Dewpoint is displayed.
