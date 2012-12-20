@@ -1,9 +1,9 @@
 === NOAA Weather ===
-Contributors: Tim Berneman
+Contributors: tberneman
 Donate link: http://www.berneman.com/noaa-weather
 Tags: forecast, local, NOAA, plugin, plug-in, United States, US, Weather, widget, wordpress
 Requires at least: 3.0.0
-Tested up to: 3.2
+Tested up to: 3.5
 Stable tag: trunk
 
 Get NOAA weather information in the sidebar for your locale. Note that NOAA reports weather for US States, Commonwealths, & Territories only.
@@ -68,6 +68,9 @@ Try deactivating the widget and reactivating it.
 
 
 == ChangeLog ==
+
+= 1.1.1 =
+Added a default icon if not supplied in weather file.
 
 = 1.1.0 =
 Rewrote widget to use WP_Http functions (wp_remote_get) to retrieve weather file instead of using Curl. This should fix the problem on some servers that didn't have curl activated in PHP and thus the weather file never downloaded.
