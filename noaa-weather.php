@@ -2,14 +2,14 @@
 
 /**
 	Plugin Name: NOAA Weather
-	Plugin URI: http://www.berneman.com/noaa-weather
+	Plugin URI: http://NOAAWidget.com
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.1.1
+	Version: 1.1.2
 	Author: Tim Berneman
-	Author URI: http://www.berneman.com
+	Author URI: http://www.extremewebdesign.biz
 	License: GPL2
 
-		Copyright 2010-2011  Tim Berneman  (email: tim@berneman.com)
+		Copyright 2010-2011  Tim Berneman  (email: tberneman@gmail.com)
 
 		This program is free software; you can redistribute it and/or modify
 		it under the terms of the GNU General Public License, version 2, as
