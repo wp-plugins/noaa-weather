@@ -2,7 +2,7 @@
 Contributors: tberneman
 Donate link: http://NOAAWidget.com
 Tags: forecast, local, NOAA, plugin, plug-in, United States, US, Weather, widget, wordpress
-Requires at least: 3.0.0
+Requires at least: 3.0
 Tested up to: 3.5
 Stable tag: trunk
 
@@ -22,10 +22,14 @@ You can have multiple instances of the widget on the same page.
 
 This widget periodically downloads an XML file from NOAA into the widget folder so it will need the appropriate permissions.
 
-== Pro Version ==
+== Possible New Features (in no particular order) ==
 
-Depending on how well received this widget is and requests for enhancements, I may make a paid for "Pro" version. I would probably ask for a nominal fee (around $10-$20 USD) for this enhanced version. The "Pro" version most likely would include the current conditions as well as a 3 or 5 day forecast and weather alerts. Depending on the usefulness, I may make shortcodes to include the weather in posts or other places. Please send me an email at tberneman@gmail.com if you would be interested in a pro version. Your suggestions would also be most welcome!
+1) Weather alerts.
+2) 3 or 5 day forecast.
+3) Current conditions detail.
+4) Shortcodes to include the weather in posts/pages.
 
+Please send an email to tberneman@gmail.com with your suggestions.
 
 == Installation ==
 
@@ -69,8 +73,13 @@ Try deactivating the widget and reactivating it.
 
 == ChangeLog ==
 
+= 1.2.1 =
+Fixed a bug if the icon file didn't exist. Also removed an extraneous empty folder.
+
 = 1.2.0 =
-There were problems with the icon data in the weather file so I rewrote the way the plugin gets the icon. Now all the icons are stored with the plugin and called up locally.
+There were problems with the icon data in the weather file so I rewrote the way the plugin gets the icon. Now all the icons are stored with the plugin and called up locally. Also changed the "default" icon to look better on darker backgrounds.
+
+Icons courtesy of NOAA here: http://w1.weather.gov/xml/current_obs/weather.php
 
 = 1.1.2 =
 Changed website URI's and email adddress.

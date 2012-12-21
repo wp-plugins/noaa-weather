@@ -150,10 +150,11 @@ class NOAA_Weather_Widget extends WP_Widget {
 				echo("<p class='noaa_update'>".$xml->observation_time."</p>");
 				echo("<p class='noaa_link'>Weather by <a href='".$xml->credit_URL."' title='".htmlentities($xml->credit,ENT_QUOTES)."' target='_blank'>NOAA</a>"."</p>");
 				echo("<p class='noaa_current'>Current Conditions: ".$xml->weather."</p>");
-				if ( empty($xml->icon_url_name) ) {
+				$icon_file = plugin_dir_path(__FILE__) . "icons/" . str_ireplace(".png",".jpg",$xml->icon_url_name);
+				if ( empty($xml->icon_url_name) || !file_exists($icon_file) ) {
 					echo("<p class='noaa_icon'><a href='http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&amp;lon=".$xml->longitude."' title='Click for your 5-day forecast.' target='_blank'><img src='".plugin_dir_url(__FILE__)."noaa-logo.png' alt='NOAA Icon'/></a>"."</p>");
 				}else{
-					echo("<p class='noaa_icon'><a href='http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&amp;lon=".$xml->longitude."' title='Click for your 5-day forecast.' target='_blank'><img src='".plugin_dir_url(__FILE__)."icons/".str_replace(".png",".jpg",$xml->icon_url_name)."' alt='NOAA Icon'/></a>"."</p>");
+					echo("<p class='noaa_icon'><a href='http://forecast.weather.gov/MapClick.php?lat=".$xml->latitude."&amp;lon=".$xml->longitude."' title='Click for your 5-day forecast.' target='_blank'><img src='".plugin_dir_url(__FILE__).$icon_file."' alt='NOAA Icon'/></a>"."</p>");
 				}
 				echo("<p class='noaa_temp'><span>Temp: </span>".round($xml->temp_f)."&deg;F</p>");
 				echo("<p class='noaa_wind'><span>Wind: </span>".str_ireplace($wind_full,$wind_abbr,$xml->wind_dir)." at ".round($xml->wind_mph)."mph</p>");
