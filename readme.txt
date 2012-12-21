@@ -69,6 +69,9 @@ Try deactivating the widget and reactivating it.
 
 == ChangeLog ==
 
+= 1.2.0 =
+There were problems with the icon data in the weather file so I rewrote the way the plugin gets the icon. Now all the icons are stored with the plugin and called up locally.
+
 = 1.1.2 =
 Changed website URI's and email adddress.
 
