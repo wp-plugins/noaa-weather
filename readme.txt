@@ -3,7 +3,7 @@ Contributors: tberneman
 Donate link: http://NOAAWidget.com
 Tags: forecast, local, NOAA, plugin, plug-in, United States, US, Weather, widget, wordpress
 Requires at least: 3.0
-Tested up to: 3.5
+Tested up to: 3.6
 Stable tag: trunk
 
 Get NOAA weather information in the sidebar for your locale. Note that NOAA reports weather for US States, Commonwealths, & Territories only.
@@ -16,11 +16,11 @@ Please remember to come back and Rate this plugin as well as report the Compatab
 
 To find your code go to this link http://www.weather.gov/xml/current_obs/ and find your state or location in the dropdown list and click the "Find" button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after the location name.
 
-Depending on your theme you may need to tweak the CSS file.
+Depending on your theme you may need to tweak the CSS file. Editing is available through Appearance->Editor.
 
 You can have multiple instances of the widget on the same page.
 
-This widget periodically downloads an XML file from NOAA into the widget folder so it will need the appropriate permissions.
+This widget periodically downloads an XML file from NOAA into the widget folder so it will need the appropriate permissions. Files need to be set to "0644" and folders need to be set to "0755". See http://codex.wordpress.org/Changing_File_Permissions) for more information.
 
 == Possible New Features (in no particular order) ==
 
@@ -28,6 +28,9 @@ This widget periodically downloads an XML file from NOAA into the widget folder 
 2) 3 or 5 day forecast.
 3) Current conditions detail.
 4) Shortcodes to include the weather in posts/pages.
+
+== Known Bugs ==
+The datestamp for the log function doesn't use the locale setting to calculate the time.
 
 Please send an email to tberneman@gmail.com with your suggestions.
 
@@ -61,7 +64,7 @@ Upgrade using the Wordpress Admin or overwrite your files/folder with the new fi
 = Why am I getting "Weather Unavailable or invalid NOAA code." in my widget? =
 First, make sure you are using the latest version of the widget. If you are still getting this message, most likely you've entered an invalid code or you have just installed the widget. If you've just installed the widget, make sure you have entered in a code and that it is valid.
 
-Try deactivating the widget and reactivating it.
+Second, try deactivating the widget and reactivating it.
 
 
 == Screenshots ==
@@ -72,6 +75,9 @@ Try deactivating the widget and reactivating it.
 
 
 == ChangeLog ==
+
+= 1.2.2 =
+Updated the url where the XML file resides after NOAA changed it which caused the weather to no longer updated.
 
 = 1.2.1 =
 Fixed a bug if the icon file didn't exist. Also removed an extraneous empty folder.

@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://NOAAWidget.com
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.2.0
+	Version: 1.2.2
 	Author: Tim Berneman
 	Author URI: http://www.extremewebdesign.biz
 	License: GPL2
@@ -87,7 +87,7 @@ function Get_NOAA_Weather_File() {
  */
 function Get_NOAA_Weather_File_With_HTTP( $code ) {
 	// Get current conditions
-	$result = wp_remote_get ( "http://www.weather.gov/xml/current_obs/{$code}.xml" );
+	$result = wp_remote_get ( "http://w1.weather.gov/xml/current_obs/{$code}.xml" );
 	$fp = fopen(dirname( __FILE__) . "/weather-current-{$code}.xml", "w" );
 	fwrite($fp, $result["body"]);
 	fclose($fp);
@@ -215,7 +215,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'noaa_code' ); ?>" name="<?php echo $this->get_field_name( 'noaa_code' ); ?>" value="<?php echo $instance['noaa_code']; ?>" style="width:100%;" />
 		</p>
 		<p class='description'>
-			Find your code <a href="http://www.weather.gov/xml/current_obs/" target="_blank">here</a> by selecting your state from the dropdown list and then click the 'Find' button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after your location name.
+			Find your code <a href="http://w1.weather.gov/xml/current_obs/" target="_blank">here</a> by selecting your state from the dropdown list and then click the 'Find' button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after your location name.
 		</p>
 
 	<?php
