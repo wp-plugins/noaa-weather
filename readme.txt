@@ -3,7 +3,7 @@ Contributors: tberneman
 Donate link: http://NOAAWidget.com
 Tags: forecast, local, NOAA, plugin, plug-in, United States, US, Weather, widget, wordpress
 Requires at least: 3.0
-Tested up to: 3.6
+Tested up to: 3.8
 Stable tag: trunk
 
 Get NOAA weather information in the sidebar for your locale. Note that NOAA reports weather for US States, Commonwealths, & Territories only.
@@ -64,7 +64,11 @@ Upgrade using the Wordpress Admin or overwrite your files/folder with the new fi
 = Why am I getting "Weather Unavailable or invalid NOAA code." in my widget? =
 First, make sure you are using the latest version of the widget. If you are still getting this message, most likely you've entered an invalid code or you have just installed the widget. If you've just installed the widget, make sure you have entered in a code and that it is valid.
 
-Second, try deactivating the widget and reactivating it.
+Second, check permissions on the downloaded XML file.
+
+Lastly, try deactivating the widget and reactivating it.
+
+* If you still have problems after trying these solutions, email the plugin author.
 
 
 == Screenshots ==
@@ -75,6 +79,10 @@ Second, try deactivating the widget and reactivating it.
 
 
 == ChangeLog ==
+
+= 1.2.3 =
+Fixed (kludged) problem where cron job got deleted (for no known reason) and thus the weather file never gets updated.
+Checked and changed compatibility up to WordPress 3.8
 
 = 1.2.2 =
 Updated the url where the XML file resides after NOAA changed it which caused the weather to no longer updated.
