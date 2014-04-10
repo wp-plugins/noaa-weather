@@ -4,12 +4,12 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://NOAAWidget.com
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.2.3
+	Version: 1.2.4
 	Author: Tim Berneman
 	Author URI: http://www.extremewebdesign.biz
 	License: GPL2
 
-		Copyright 2010-2013  Tim Berneman  (email: tberneman@gmail.com)
+		Copyright 2010-2014  Tim Berneman  (email: tberneman@gmail.com)
 
 		This program is free software; you can redistribute it and/or modify
 		it under the terms of the GNU General Public License, version 2, as
@@ -163,7 +163,11 @@ class NOAA_Weather_Widget extends WP_Widget {
 				}
 				echo("<p class='noaa_temp'><span>Temp: </span>".round($xml->temp_f)."&deg;F</p>");
 				echo("<p class='noaa_wind'><span>Wind: </span>".str_ireplace($wind_full,$wind_abbr,$xml->wind_dir)." at ".round($xml->wind_mph)."mph</p>");
-				echo("<p class='noaa_humidity'><span>Humidity: </span>".$xml->relative_humidity."%</p>");
+				if ( isset($xml->relative_humidity) ) {
+					echo("<p class='noaa_humidity'><span>Humidity: </span>".$xml->relative_humidity."%</p>");
+				} else {
+					echo("<p class='noaa_humidity'><span>Humidity: </span>n\/a</p>");
+				}
 				if ( isset($xml->windchill_f) ) {
 					echo("<p class='noaa_windchill'><span>Windchill: </span>".$xml->windchill_f."&deg;F</p>");
 				}elseif ( isset($xml->heat_index_f) ) {

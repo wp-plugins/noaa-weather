@@ -3,7 +3,7 @@ Contributors: tberneman
 Donate link: http://NOAAWidget.com
 Tags: forecast, local, NOAA, plugin, plug-in, United States, US, Weather, widget, wordpress
 Requires at least: 3.0
-Tested up to: 3.8
+Tested up to: 3.8.2
 Stable tag: trunk
 
 Get NOAA weather information in the sidebar for your locale. Note that NOAA reports weather for US States, Commonwealths, & Territories only.
@@ -79,13 +79,17 @@ Lastly, try deactivating the widget and reactivating it.
 
 
 == ChangeLog ==
+= 1.2.4 =
+Fixed problem when no humidity value in weather file it will display "n/a" instead of just a percent sign.
+Checked and changed compatibility up to WordPress 3.8.2
+Changed copyright notice of program to 2014.
 
 = 1.2.3 =
 Fixed (kludged) problem where cron job got deleted (for no known reason) and thus the weather file never gets updated.
 Checked and changed compatibility up to WordPress 3.8
 
 = 1.2.2 =
-Updated the url where the XML file resides after NOAA changed it which caused the weather to no longer updated.
+Updated the url where the XML file resides after NOAA changed it which caused the weather to no longer be updated.
 
 = 1.2.1 =
 Fixed a bug if the icon file didn't exist. Also removed an extraneous empty folder.
