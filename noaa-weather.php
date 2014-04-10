@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://NOAAWidget.com
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.2.4
+	Version: 1.2.5
 	Author: Tim Berneman
 	Author URI: http://www.extremewebdesign.biz
 	License: GPL2
@@ -166,7 +166,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 				if ( isset($xml->relative_humidity) ) {
 					echo("<p class='noaa_humidity'><span>Humidity: </span>".$xml->relative_humidity."%</p>");
 				} else {
-					echo("<p class='noaa_humidity'><span>Humidity: </span>n\/a</p>");
+					echo("<p class='noaa_humidity'><span>Humidity: </span>n/a</p>");
 				}
 				if ( isset($xml->windchill_f) ) {
 					echo("<p class='noaa_windchill'><span>Windchill: </span>".$xml->windchill_f."&deg;F</p>");

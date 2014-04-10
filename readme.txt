@@ -79,6 +79,9 @@ Lastly, try deactivating the widget and reactivating it.
 
 
 == ChangeLog ==
+= 1.2.5 =
+Fixed bug I introduced in 1.2.4 where I had escaped the slash in "n/a".
+
 = 1.2.4 =
 Fixed problem when no humidity value in weather file it will display "n/a" instead of just a percent sign.
 Checked and changed compatibility up to WordPress 3.8.2
