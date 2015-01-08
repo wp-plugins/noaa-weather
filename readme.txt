@@ -79,6 +79,11 @@ Lastly, try deactivating the widget and reactivating it.
 
 
 == ChangeLog ==
+= 1.3.0 =
+Add a City override field so you can have more control over what is displayed.
+Changed screenshot #1 to reflect new city override field.
+Changed copyright notice of program to 2015.
+
 = 1.2.7 =
 Checked and verified compatibility up to WordPress 4.1
 
