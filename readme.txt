@@ -81,6 +81,7 @@ Lastly, try deactivating the widget and reactivating it.
 == ChangeLog ==
 = 1.3.1 =
 Made minor spelling changes.
+Tweaked noaa-weather.css file.
 Checked and verified compatibility up to WordPress 4.2
 
 = 1.3.0 =
