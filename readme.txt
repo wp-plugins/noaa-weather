@@ -12,7 +12,7 @@ Get NOAA weather information in the sidebar for your locale. Note that NOAA repo
 
 The NOAA Weather widget will show the current weather and weather icons for any locale in the United States (including the commonwealths & territories) that NOAA reports on. It will automatically add the necessary information into the WordPress cron to update every 30 minutes.
 
-Please remember to come back and Rate this plugin as well as report the Compatability of this plugin. If you have any questions, problems or suggestions please don't hesitate to email me at tberneman@gmail.com and I will respond quickly.
+Please remember to come back and Rate this plugin as well as report the compatibility of this plugin. If you have any questions, problems or suggestions please don't hesitate to email me at tberneman@gmail.com and I will respond quickly.
 
 To find your code go to this link http://www.weather.gov/xml/current_obs/ and find your state or location in the dropdown list and click the "Find" button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after the location name.
 
@@ -56,7 +56,7 @@ Use as a widget wherever widgets are allowed in your theme.
 
 
 == Upgrade Notice ==
-Upgrade using the Wordpress Admin or overwrite your files/folder with the new files/folder.
+Upgrade using the WordPress Admin or overwrite your files/folder with the new files/folder.
 
 
 == Frequently Asked Questions ==
@@ -79,6 +79,10 @@ Lastly, try deactivating the widget and reactivating it.
 
 
 == ChangeLog ==
+= 1.3.1 =
+Made minor spelling changes.
+Checked and verified compatibility up to WordPress 4.2
+
 = 1.3.0 =
 Add a City override field so you can have more control over what is displayed.
 Changed screenshot #1 to reflect new city override field.
@@ -114,7 +118,7 @@ There were problems with the icon data in the weather file so I rewrote the way 
 Icons courtesy of NOAA here: http://w1.weather.gov/xml/current_obs/weather.php
 
 = 1.1.2 =
-Changed website URI's and email adddress.
+Changed website URI's and email address.
 
 = 1.1.1 =
 Added a default icon if not supplied in weather file.
@@ -130,7 +134,7 @@ If there is no value for Windchill then Heat Index is displayed, if no Heat Inde
 Removed default title of "NOAA Weather" if the user left it blank in the widget setup for more flexibility with some themes.
 
 = 1.0.6 =
-Fixed a problem with a slash vs. backslash for Wordpress installs on Linux servers.
+Fixed a problem with a slash vs. backslash for WordPress installs on Linux servers.
 
 = 1.0.5 =
 Get current weather file for any codes "in use" when activating plugin.
@@ -143,7 +147,7 @@ Fixed the links that broke when making them pass validation.
 
 = 1.0.2 =
 The widget should pass markup validation now.
-The NOAA code is trimmed of any extraneous spaces and is uppercased.
+The NOAA code is trimmed of any extraneous spaces and is upper-cased.
 The weather is now retrieved immediately when you add/change the NOAA code. There is no need to deactivate/activate the plugin to get the weather to update.
 If there is no value for Windchill, Dewpoint is displayed instead.
 

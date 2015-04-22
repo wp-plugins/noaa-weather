@@ -4,7 +4,7 @@
 	Plugin Name: NOAA Weather
 	Plugin URI: http://NOAAWidget.com
 	Description: Display the current NOAA weather in the sidebar.  Be sure to set your NOAA Code!
-	Version: 1.3.0
+	Version: 1.3.1
 	Author: Tim Berneman
 	Author URI: http://www.extremewebdesign.biz
 	License: GPL2
@@ -126,7 +126,7 @@ class NOAA_Weather_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 
-		/* Check for cron job (sometimes it dissappears for no known reason), create & run if necessary */
+		/* Check for cron job (sometimes it disappears for no known reason), create & run if necessary */
 		$cron = wp_get_schedule( 'Get_NOAA_Weather' );
 		if ($cron == '') activate_NOAA_Weather_widget();
 
