@@ -1,3 +1,54 @@
+<<<<<<< .mine
+/*
+  Author: Tim Berneman
+ Website: http://www.extremewebdesign.biz/noaa-weather-widget/
+    Desc: This css file is used in conjunction with noaa-weather.php which is part of
+          a WordPress widget to provide NOAA weather in a sidebar.
+
+  Styles: Here is a list of the styles and what they affect
+  
+          STYLE NAME      Example of text
+          =============== ===========================================================
+          .noaa_loc       Mason City Municipal Airport, IA
+          .noaa_update    Last Updated on Apr 22 2011, 8:48 am CST
+          .noaa_link      Weather by NOAA
+          .noaa_current   Current Conditions: Fog/Mist
+          .noaa_icon      (the icon)
+          .noaa_temp      Temp: 25°F (span is for the word "Temp:")
+          .noaa_wind      Wind: SE at 12mph (span is for the word "Wind:")
+          .noaa_humidity  Humidity: 96% (span is for the word "Humidity:")
+          .noaa_windchill Windchill: 14°F (span is for the word "Windchill:")
+          .noaa_heatindex Heat Index: 98°F (span is for the words "Heat Index:")
+          .noaa_dewpoint  Dewpoint: 22°F (span is for the word "Dewpoint:")
+                          NOTE: Dewpoint is shown if there is no value for windchill
+          .noaa_forecast  Your 5-Day Forecast at a Glance (link)
+          =============== ===========================================================
+*/
+
+#noaa-weather {}
+#noaa-weather p {margin: 0; padding: 0;}
+#noaa-weather p.noaa_loc {font-weight: bold; text-align: center;}
+#noaa-weather p.noaa_update {font-size: .8em; text-align: center;}
+#noaa-weather p.noaa_link {text-align: center;}
+#noaa-weather p.noaa_current {font-size: 1.1em; font-weight: bold; margin: 8px 0; text-align: center;}
+#noaa-weather p.noaa_icon {float: left; margin-right: 8px;}
+#noaa-weather p.noaa_icon img{border: 1px solid #666; margin-left: 10px; padding: 2px;}
+#noaa-weather p.noaa_temp {line-height: 1.3em;}
+#noaa-weather p.noaa_temp span {font-weight: bold;}
+#noaa-weather p.noaa_wind {line-height: 1.3em;}
+#noaa-weather p.noaa_wind span {font-weight: bold;}
+#noaa-weather p.noaa_humidity {line-height: 1.3em;}
+#noaa-weather p.noaa_humidity span {font-weight: bold;}
+#noaa-weather p.noaa_windchill {line-height: 1.3em;}
+#noaa-weather p.noaa_windchill span {font-weight: bold;}
+#noaa-weather p.noaa_dewpoint {line-height: 1.3em;}
+#noaa-weather p.noaa_dewpoint span {font-weight: bold;}
+#noaa-weather p.noaa_heatindex {line-height: 1.3em;}
+#noaa-weather p.noaa_heatindex span {font-weight: bold;}
+#noaa-weather p.noaa_forecast {margin: 16px 20px 1px 20px; text-align: center;}
+#noaa-weather p.noaa_forecast a {text-decoration: none;}
+#noaa-weather p.noaa_forecast a:hover {text-decoration: underline;}
+=======
 /*
   Author: Tim Berneman
  Website: http://www.berneman.com/noaa-weather
@@ -47,3 +98,4 @@
 #noaa-weather p.noaa_forecast {margin: 16px 20px 1px 20px; text-align: center;}
 #noaa-weather p.noaa_forecast a {text-decoration: none;}
 #noaa-weather p.noaa_forecast a:hover {text-decoration: underline;}
+>>>>>>> .r1142197
