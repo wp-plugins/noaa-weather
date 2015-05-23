@@ -3,7 +3,7 @@ Contributors: tberneman
 Donate link: http://NOAAWidget.com
 Tags: forecast, local, NOAA, plugin, plug-in, United States, US, Weather, widget, wordpress
 Requires at least: 3.0
-Tested up to: 4.1
+Tested up to: 4.2.2
 Stable tag: trunk
 
 Get NOAA weather information in the sidebar for your locale. Note that NOAA reports weather for US States, Commonwealths, & Territories only.
@@ -16,7 +16,7 @@ Please remember to come back and Rate this plugin as well as report the compatib
 
 To find your code go to this link http://www.weather.gov/xml/current_obs/ and find your state or location in the dropdown list and click the "Find" button. On the next screen find your 'Observation Location' and the code you need is in parenthesis after the location name.
 
-Depending on your theme you may need to tweak the CSS file. Editing is available through Appearance->Editor.
+Depending on your theme you may need to tweak the CSS file. Editing is available through the WordPress Admin Menu via Plugins->Editor. Then in the upper-right corner change the 'plugin to edit' dropdown box to "NOAA Weather" and click the "Select" button to the right of that. Next click on the "noaa-weather/noaa-weather.css" file just below the dropdown box and "Select" button.
 
 You can have multiple instances of the widget on the same page.
 
@@ -56,7 +56,7 @@ Use as a widget wherever widgets are allowed in your theme.
 
 
 == Upgrade Notice ==
-Upgrade using the WordPress Admin or overwrite your files/folder with the new files/folder.
+Upgrade using the WordPress Admin or overwrite your files/folders with the new files/folders.
 
 
 == Frequently Asked Questions ==
@@ -79,6 +79,14 @@ Lastly, try deactivating the widget and reactivating it.
 
 
 == ChangeLog ==
+
+= 1.3.3 =
+Fixed error in this document, you go to Plugins->Editor NOT Appearance->Editor to tweak the CSS. Added more direction on editing the CSS file.
+Checked and verified compatibility up to WordPress 4.2.2
+
+= 1.3.2 =
+Checked and verified compatibility up to WordPress 4.2.1
+
 = 1.3.1 =
 Made minor spelling changes.
 Tweaked noaa-weather.css file.
